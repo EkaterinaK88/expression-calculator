@@ -19,7 +19,13 @@ function expressionCalculator(expr) {
   }
   
   let arr = [];
-  let arr2 = expr.split(' ');
+  let arr2;
+  if (isNaN(Number(expr[1]))) {
+    arr2 = expr.split('');
+  } else {
+  arr2 = expr.split(' ');
+  }
+
   for (let i = 0; i < arr2.length; i++) {
     if (isNaN(parseInt(arr2[i])) && arr2[i] !== ' ' && arr2[i] !== '') {
       arr.push(arr2[i]);
