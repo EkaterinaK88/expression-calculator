@@ -19,11 +19,21 @@ function expressionCalculator(expr) {
   }
   
   let arr = [];
-  let arr2;
-  if (isNaN(Number(expr[1]))) {
-    arr2 = expr.split('');
-  } else {
-  arr2 = expr.split(' ');
+  let arr2 = [];
+  let n = '';
+  for (let i = 0; i < expr.length; i++) {
+    if (!isNaN(Number(expr[i]))) {
+      n += expr[i];
+      expr.slice(i, i + 1);
+    } else {
+      arr2.push(n);
+      arr2.push(expr[i]);
+      n = '';
+    }
+    if (!expr[i + 1]) {
+      arr2.push(n);
+      n = '';
+    }
   }
 
   for (let i = 0; i < arr2.length; i++) {
