@@ -15,7 +15,7 @@ function expressionCalculator(expr) {
     }
   }
   if (countOpen !== countClose) {
-    throw new Error('Brackets must be paired');
+    throw new Error('ExpressionError: Brackets must be paired');
   }
   
   let arr = [];
@@ -57,7 +57,7 @@ function expressionCalculator(expr) {
        arr.splice(i - 1, 3, result);
        i--;
      } else if (arr[i] === '/' && arr[i + 1] === 0) {
-        throw new TypeError('Division by zero');   
+        throw new TypeError('TypeError: Division by zero');   
      }
    }
    for (let i = 0; i < arr.length; i++) {  
